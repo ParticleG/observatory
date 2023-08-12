@@ -9,7 +9,7 @@ export enum DeviceEventType {
 
 export enum WheelDirection {
   VERTICAL = 3,
-  HORIZONTAL = 4
+  HORIZONTAL = 4,
 }
 
 interface DeviceEventBase {
