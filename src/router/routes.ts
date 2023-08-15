@@ -5,7 +5,13 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', redirect: '/particle' },
+      { path: '', redirect: '/live' },
+      {
+        path: 'live',
+        components: {
+          default: () => import('pages/LivePage.vue'),
+        },
+      },
       {
         path: 'particle',
         components: {
