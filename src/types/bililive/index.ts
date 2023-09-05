@@ -17,31 +17,8 @@ export class DanmakuMessage {
 
   constructor(rawMessage: IDanmakuMessage) {
     console.log(rawMessage);
-    this.time = new Date(rawMessage.info[0][4]);
-    const [
-      config,
-      content,
-      user,
-      medal,
-      rank,
-      teamId,
-      level,
-      info7,
-      info8,
-      other,
-    ] = rawMessage.info;
-    const [
-      config0,
-      mode,
-      fontSize,
-      color,
-      sendTime,
-      rnd,
-      config6,
-      uidCrc32,
-      config8,
-      config9,
-      config10,
-    ] = config;
+    const [config, content, user, medal, rank, teamId, level] = rawMessage.info;
+    const [, mode, fontSize, color, sendTime, rnd, , uidCrc32] = config;
+    this.time = new Date(sendTime);
   }
 }
