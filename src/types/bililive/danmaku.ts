@@ -1,5 +1,6 @@
 export interface DanmakuInfo
   extends Array<
+    | Array<number>
     | number
     | string
     | null
@@ -9,84 +10,75 @@ export interface DanmakuInfo
     | DanmakuInfoRank
     | DanmakuInfoOther
   > {
-  /** 弹幕信息 */
   0: DanmakuInfoConfig;
-  /** 弹幕内容 */
-  1: string;
-  /** 用户信息 */
+  1: string; // Content
   2: DanmakuInfoUser;
-  /** 用户徽章 */
   3: DanmakuInfoMedal;
-  /** 用户排行 */
   4: DanmakuInfoRank;
-  /** teamId */
-  5: number;
-  /** 舰队等级 */
-  6: number;
+  5: number; // TeamId
+  6: number; // Crew Level
   7: number;
   8: null;
   9: DanmakuInfoOther;
+  10: number;
+  11: number;
+  12: null;
+  13: null;
+  14: number;
+  15: number;
+  16: Array<number>;
 }
 
 export interface DanmakuInfoConfig extends Array<number | string> {
   0: number;
-  /** 模式 */
-  1: number;
-  /** 字号 */
-  2: number;
-  /** 颜色 */
-  3: number;
-  /** 发送时间 */
-  4: number;
-  /** rnd */
-  5: number | string;
+  1: number; // Mode
+  2: number; // Font Size
+  3: number; // Color
+  4: number; // Send Time
+  5: number | string; // rnd
   6: number;
-  /** uid crc32 */
-  7: string;
+  7: string; // uid crc32
   8: number;
   9: number;
   10: number;
+  11: string;
+  12: number;
+  13: string;
+  14: string;
 }
 
 export interface DanmakuInfoUser extends Array<number | string> {
-  /** 用户uid */
-  0: number;
-  /** 用户名 */
-  1: string;
-  /** 是否为管理员 */
-  2: 0 | 1;
-  /** 是否为月费老爷 */
-  3: 0 | 1;
-  /** 是否为年费老爷 */
-  4: 0 | 1;
-  /** 直播间内排行 */
-  5: number;
+  0: number; // uid
+  1: string; // username
+  2: 0 | 1; // admin
+  3: 0 | 1; // monthly vip
+  4: 0 | 1; // yearly vip
+  5: number; // rank
   6: number;
-  /** 用户名颜色, #32进制颜色代码 */
-  7: string;
+  7: string; // username color
 }
 
 export interface DanmakuInfoMedal extends Array<number | string> {
-  /** 徽章等级 */
-  0: number;
-  /** 勋章名 */
-  1: string;
-  /** 主播名 */
-  2: string;
-  /** 直播间, 字符串的貌似是原始房间号 */
-  3: number | string;
-  4: number;
-  /** 特殊样式 */
-  5: 'union' | string;
+  0: number; // Medal level
+  1: string; // Medal name
+  2: string; // Broadcaster name
+  3: number | string; // Broadcast RoomId
+  4: number; // Medal color
+  5: 'union' | string; // Medal type
+  6: number;
+  7: number; // Color?
+  8: number; // Color?
+  9: number; // Color?
+  10: number;
+  11: number;
+  12: number; // Broadcaster uid
 }
 
 export interface DanmakuInfoRank extends Array<number | string> {
-  /** 用户等级 */
-  0: number;
+  0: number; // User level
   1: number;
   2: number;
-  /** 等级排名, 具体值为number */
-  3: number | string;
+  3: number | string; // Rank
 }
 
 export interface DanmakuInfoOther {

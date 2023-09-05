@@ -2,9 +2,9 @@ import { DanmakuInfo } from 'types/bililive/danmaku';
 
 export interface IGenericMessage {
   cmd: string;
-  is_report: boolean;
-  msg_id: string;
-  send_time: number;
+  is_report?: boolean;
+  msg_id?: string;
+  send_time?: number;
 }
 
 export interface IDanmakuMessage extends IGenericMessage {
@@ -16,7 +16,8 @@ export class DanmakuMessage {
   time: Date;
 
   constructor(rawMessage: IDanmakuMessage) {
-    this.time = new Date(rawMessage.send_time * 1000);
+    console.log(rawMessage);
+    this.time = new Date(rawMessage.info[0][4]);
     const [
       config,
       content,
